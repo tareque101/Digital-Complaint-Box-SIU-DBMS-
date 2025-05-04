@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaints Dashboard | Digital Complaint Box</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="complaint.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-icon">
+                <i class="fas fa-comment-dots"></i>
+            </div>
+            <div class="logo-text">Complaint<span>Box</span></div>
+        </div>
+        
+        <ul class="nav-links">
+            <li>
+                <a href="dashboard.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="complaints.html">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>Complaints</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="user-profile">
+            <div class="profile-image">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+            </div>
+            <div class="profile-info">
+                <h4>John Doe</h4>
+                <p>Admin</p>
+            </div>
+            <div class="logout-icon">
+                <i class="fas fa-sign-out-alt"></i>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search complaints...">
+            </div>
+            
+            <div class="top-bar-actions">
+                <div class="notification-icon">
+                    <i class="fas fa-bell"></i>
+                    <div class="notification-dot"></div>
+                </div>
+                <button class="quick-action-btn">
+                    <i class="fas fa-plus"></i>
+                    <span>New Complaint</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <div class="welcome-banner">
+                <div class="welcome-text">
+                    <h2>Complaints <span>Management</span></h2>
+                    <p>View and manage all complaints submitted by users</p>
+                </div>
+                <div class="date-display">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span id="current-date">May 15, 2023</span>
+                </div>
+            </div>
+
+            <!-- Complaints Analytics Section -->
+            <section class="complaints-analytics">
+                <div class="analytics-grid">
+                    <!-- Complaints Chart -->
+                    <div class="complaints-chart">
+                        <div class="chart-header">
+                            <h3>Complaints Overview</h3>
+                            <div class="chart-filter">
+                                <select>
+                                    <option>Last 7 Days</option>
+                                    <option>Last 30 Days</option>
+                                    <option>Last 90 Days</option>
+                                    <option>This Year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <!-- This would be replaced with an actual chart (Chart.js, etc.) -->
+                            <div class="status-distribution">
+                                <img src="https://via.placeholder.com/600x300?text=Complaints+Chart" alt="Complaints Chart" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                            </div>
+                            <div class="chart-legend">
+                                <div class="legend-item">
+                                    <div class="legend-color pending"></div>
+                                    <span>Pending</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color in-progress"></div>
+                                    <span>In Progress</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color resolved"></div>
+                                    <span>Resolved</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color rejected"></div>
+                                    <span>Rejected</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Status Overview -->
+                    <div class="status-overview">
+                        <div class="chart-header">
+                            <h3>Status Overview</h3>
+                        </div>
+                        <div class="status-cards">
+                            <div class="status-card pending">
+                                <i class="fas fa-clock"></i>
+                                <div class="status-info">
+                                    <h4>Pending</h4>
+                                    <p>24</p>
+                                </div>
+                            </div>
+                            <div class="status-card in-progress">
+                                <i class="fas fa-spinner"></i>
+                                <div class="status-info">
+                                    <h4>In Progress</h4>
+                                    <p>18</p>
+                                </div>
+                            </div>
+                            <div class="status-card resolved">
+                                <i class="fas fa-check-circle"></i>
+                                <div class="status-info">
+                                    <h4>Resolved</h4>
+                                    <p>56</p>
+                                </div>
+                            </div>
+                            <div class="status-card rejected">
+                                <i class="fas fa-times-circle"></i>
+                                <div class="status-info">
+                                    <h4>Rejected</h4>
+                                    <p>7</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Complaints Table -->
+                <div class="recent-complaints">
+                    <div class="section-header">
+                        <h3>Recent Complaints</h3>
+                        <a href="#" class="view-all">
+                            <span>View All</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                    <div class="complaints-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Subject</th>
+                                    <th>Submitted By</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#CB-2023-001</td>
+                                    <td>Network Connectivity Issues</td>
+                                    <td>Sarah Johnson</td>
+                                    <td>May 14, 2023</td>
+                                    <td><span class="status-badge in-progress">In Progress</span></td>
+                                    <td><button class="table-btn">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>#CB-2023-002</td>
+                                    <td>Software Installation Problem</td>
+                                    <td>Michael Chen</td>
+                                    <td>May 14, 2023</td>
+                                    <td><span class="status-badge pending">Pending</span></td>
+                                    <td><button class="table-btn">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>#CB-2023-003</td>
+                                    <td>Email Not Working</td>
+                                    <td>Emily Rodriguez</td>
+                                    <td>May 13, 2023</td>
+                                    <td><span class="status-badge resolved">Resolved</span></td>
+                                    <td><button class="table-btn">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>#CB-2023-004</td>
+                                    <td>Printer Jam</td>
+                                    <td>David Wilson</td>
+                                    <td>May 13, 2023</td>
+                                    <td><span class="status-badge in-progress">In Progress</span></td>
+                                    <td><button class="table-btn">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>#CB-2023-005</td>
+                                    <td>Access Card Not Working</td>
+                                    <td>Lisa Thompson</td>
+                                    <td>May 12, 2023</td>
+                                    <td><span class="status-badge rejected">Rejected</span></td>
+                                    <td><button class="table-btn">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    
+</body>
+</html>
