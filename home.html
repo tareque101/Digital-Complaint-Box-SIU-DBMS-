@@ -157,7 +157,26 @@
         </footer>
 
     
-   
+   <!-- ====== JavaScript (non-intrusive) ====== -->
+  <script>
+    // Register Button Click
+    document.querySelector('.register-btn').addEventListener('click', function () {
+      alert('Registration system is under development.');
+    });
+
+    // Submit a Complaint Button Click
+    document.querySelector('.primary-btn').addEventListener('click', function () {
+      alert('You will be redirected to submit a complaint.');
+      // Uncomment if you want real navigation
+      // window.location.href = "complaint.html";
+    });
+
+    // How It Works Button Click
+    document.querySelector('.secondary-btn').addEventListener('click', function () {
+      alert('Scrolling to how it works section...');
+      document.querySelector('.features').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
 
      
 
