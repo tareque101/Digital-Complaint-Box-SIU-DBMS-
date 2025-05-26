@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = $conn->prepare("SELECT * FROM users WHERE email=?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
+
     $res = $stmt->get_result();
 
     if ($res->num_rows === 1) {

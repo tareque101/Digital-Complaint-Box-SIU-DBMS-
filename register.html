@@ -4,97 +4,28 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Register Form</title>
-<style>
-  /* ফন্ট ও বডি স্টাইল */
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f4f7fc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
+<link rel="stylesheet" href="css/register.css">
 
-  /* ফর্ম কন্টেইনার */
-  form {
-    background: white;
-    padding: 30px 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 25px rgba(0,0,0,0.1);
-    width: 350px;
-  }
 
-  /* হেডার */
-  form h2 {
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
-  }
-
-  /* ইনপুট ও সিলেক্ট স্টাইল */
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  select {
-    width: 100%;
-    padding: 12px 15px;
-    margin-bottom: 20px;
-    border: 1.5px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-  }
-
-  /* ফোকাস স্টাইল */
-  input[type="text"]:focus,
-  input[type="email"]:focus,
-  input[type="password"]:focus,
-  select:focus {
-    border-color: #5b9bd5;
-    outline: none;
-  }
-
-  /* সাবমিট বাটন */
-  button {
-    width: 100%;
-    padding: 12px;
-    background-color: #5b9bd5;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-weight: 600;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  button:hover {
-    background-color: #4a89cc;
-  }
-
-  /* ছোট স্ক্রিনের জন্য */
-  @media (max-width: 400px) {
-    form {
-      width: 90%;
-      padding: 20px;
-    }
-  }
-</style>
 </head>
 <body>
 
 <form action="register.php" method="POST">
   <h2>Create Account</h2>
-  <input type="text" name="name" placeholder="Full Name" required />
-  <input type="email" name="email" placeholder="Email" required />
-  <input type="password" name="password" placeholder="Password" required />
+
+  <input type="text" name="name" placeholder="Full Name" required autocomplete="name" />
+
+  <input type="email" name="email" placeholder="Email" required autocomplete="email" />
+
+  <input type="password" name="password" placeholder="Password" required autocomplete="new-password" />
+
   <select name="role" required>
     <option value="" disabled selected>Select Role</option>
     <option value="student">Student</option>
     <option value="staff">Staff</option>
     <option value="teacher">Teacher</option>
   </select>
+
   <button type="submit">Register</button>
 </form>
 

@@ -1,38 +1,36 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "your_database_name"; // replace with your DB name
+include 'db_config.php';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+ 
+    $user_id = $_POST['user_id'];
+    $category = $_POST['category'];
+    $description = $_POST['description'];
+    $file_path = '';
 
-// Collect form data
-$name = $_POST['name'];
-$email = $_POST['email'];
-$role = $_POST['role'];
-$category = $_POST['category'];
-$description = $_POST['description'];
+ 
+    if (!empty($_FILES['attachment']['name'])) {
+        $target_dir = "uploads/";
+        if (!is_dir($target_dir)) mkdir($target_dir, 0777, true);
+        $file_path = $target_dir . basename($_FILES["attachment"]["name"]);
 
-// Step 1: Insert into users table (if not already there)
-$sql_user = "INSERT INTO users (name, email, role) VALUES ('$name', '$email', '$role')";
-$conn->query($sql_user);
+        if (!move_uploaded_file($_FILES["attachment"]["tmp_name"], $file_path)) {
+            die("File upload failed.");
+        }
+    }
 
-// Step 2: Get user_id
-$user_id = $conn->insert_id;
+     
+    $stmt = $conn->prepare("INSERT INTO complaints (user_id, category, description, file_path) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("isss", $user_id, $category, $description, $file_path);
 
-// Step 3: Insert into complaints table
-$sql_complaint = "INSERT INTO complaints (user_id, category, description) 
-                  VALUES ($user_id, '$category', '$description')";
-
-if ($conn->query($sql_complaint) === TRUE) {
-  echo "✅ Complaint submitted successfully.";
+    if ($stmt->execute()) {
+       
+        header("Location: complaint_form.html?success=1");
+        exit();
+    } else {
+        echo "Database error: " . $conn->error;
+    }
 } else {
-  echo "❌ Error: " . $conn->error;
+    echo "Invalid request.";
 }
-require_once 'connect.php'; // or the correct path like '../connect.php'
-
-$conn->close();
 ?>

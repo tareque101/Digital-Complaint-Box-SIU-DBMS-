@@ -1,30 +1,45 @@
 <?php
-include 'db_config.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $role = $_POST['role'];   
+$servername = "localhost";         
+$username = "root";                
+$password = "";                    
+$dbname = "digital_complaint_box";    
 
-     
-    $stmt = $conn->prepare("SELECT id FROM users WHERE email=?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-    if ($stmt->num_rows > 0) {
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$name = trim($_POST['name']);
+$email = trim($_POST['email']);
+$role = $_POST['role'];
+$password = $_POST['password'];
+
+if (empty($name) || empty($email) || empty($password) || empty($role)) {
+    die("Please fill all required fields.");
+}
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    die("Invalid email format.");
+}
+
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+
+$stmt = $conn->prepare("INSERT INTO users2 (name, email, password, role, created_at) VALUES (?, ?, ?, ?, NOW())");
+$stmt->bind_param("ssss", $name, $email, $hashed_password, $role);
+
+
+if ($stmt->execute()) {
+    echo "Registration successful!";
+} else {
+    if ($conn->errno == 1062) {
         echo "Email already registered.";
-        exit;
-    }
-
-    $stmt = $conn->prepare("INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $name, $email, $password, $role);
-
-    if ($stmt->execute()) {
-        echo "Registration successful!";
     } else {
         echo "Error: " . $conn->error;
     }
 }
+
+$stmt->close();
+$conn->close();
 ?>
