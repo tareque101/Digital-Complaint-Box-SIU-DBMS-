@@ -68,8 +68,8 @@
     <label>Name:</label>
     <input type="text" name="name" required>
 
-    <label>Email:</label>
-    <input type="email" name="email" required>
+    <label>user_id:</label>
+    <input type="text" name="user_id" required>
 
     <label>Role:</label>
     <select name="role" required>
@@ -80,7 +80,19 @@
     </select>
 
     <label>Category:</label>
-    <input type="text" name="category" required>
+   <select name="category" required>
+  <option value="">Select Category</option>
+  <option value="Internet">Hostel</option>
+  <option value="Transport">Transport</option>
+  <option value="Cafeteria">Cafeteria</option>
+  <option value="Academic">Academic</option>
+  <option value="Library">Library</option>
+  <option value="Lab">Lab</option>
+  <option value="Water Supply">Water Supply</option>
+  <option value="Electricity">Electricity</option>
+  <option value="Administration">Administration</option>
+  <option value="Other">Other</option>
+</select>
 
     <label>Description:</label>
     <textarea name="description" rows="4" required></textarea>

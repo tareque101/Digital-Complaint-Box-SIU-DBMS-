@@ -23,8 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // DB insert query
+    // Database insert query (status and created_at omitted)
     $stmt = $conn->prepare("INSERT INTO complaints (user_id, category, description, file_path) VALUES (?, ?, ?, ?)");
+
     $stmt->bind_param("isss", $user_id, $category, $description, $file_path);
 
     if ($stmt->execute()) {

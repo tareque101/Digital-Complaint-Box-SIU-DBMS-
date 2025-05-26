@@ -1,27 +1,32 @@
 <?php
-session_start();
-include 'db_config.php';
+include 'db_config.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
 
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email=?");
+    $stmt = $conn->prepare("SELECT password, role, name FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
+    $stmt->store_result();
 
-    $res = $stmt->get_result();
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($db_password, $role, $name);
+        $stmt->fetch();
 
-    if ($res->num_rows === 1) {
-        $row = $res->fetch_assoc();
-        if (password_verify($password, $row['password'])) {
-            $_SESSION['user'] = $row;
-            echo "Login successful!";
+        if ($password === $db_password) {
+            session_start();
+            $_SESSION['email'] = $email;
+            $_SESSION['role'] = $role;
+            $_SESSION['name'] = $name;
+
+            
+            header("Location: home.html");
+            exit();
         } else {
-            echo "Invalid password.";
+            echo "Password is wrong";
         }
     } else {
-        echo "User not found.";
+        echo "Email is not correct";
     }
 }
-?>

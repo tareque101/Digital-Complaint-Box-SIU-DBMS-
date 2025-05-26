@@ -1,5 +1,5 @@
-<style>
-/* ===== BASE STYLES ===== */
+
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +13,6 @@ body {
     min-height: 100vh;
 }
 
-/* ===== SIDEBAR ===== */
 .sidebar {
     width: 280px;
     background: white;
@@ -557,15 +556,4 @@ body {
     }
 }
 
-@media (max-width: 576px) {
-    .action-buttons {
-        grid-template-columns: 1fr;
-    }
-    
-    .complaints-table table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-}
-</style>
+
