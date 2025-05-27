@@ -1,0 +1,254 @@
+/* complaints2.css (px version, no bg in quick actions) */
+
+/* Reset some default styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  line-height: 1.4;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f9fafb;
+}
+
+/* Section Headers */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-header h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.section-header .view-all {
+  text-decoration: none;
+  font-weight: 600;
+  color: #27ae60;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.3s ease;
+}
+
+.section-header .view-all:hover {
+  color: #219150;
+}
+
+.section-header .view-all i {
+  font-size: 14px;
+}
+
+/* Recent Activity Section */
+.recent-activity {
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.activity-item {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #f0f7f3;
+  transition: background-color 0.3s ease;
+  cursor: default;
+}
+
+.activity-item:hover {
+  background-color: #e2f0e8;
+}
+
+.activity-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  width: 40px;
+  text-align: center;
+}
+
+/* Icon colors based on status */
+.resolved {
+  color: #27ae60;
+}
+
+.new {
+  color: #2980b9;
+}
+
+.in-progress {
+  color: #f39c12;
+}
+
+.activity-details h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #34495e;
+}
+
+.activity-details p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.activity-time {
+  font-size: 12px;
+  color: #999;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto 64px auto;
+  padding: 0 16px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Quick Actions Card */
+.quick-actions-card {
+  /* No background-color here as requested */
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  /* background-color: #27ae60; */
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-btn i {
+  font-size: 20px;
+}
+
+.action-btn:hover {
+   font-size: larger;
+}
+
+/* Recent Complaints Table */
+.recent-complaints {
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+  overflow-x: auto;
+}
+
+.complaints-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.complaints-table th,
+.complaints-table td {
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.complaints-table th {
+  background-color: #27ae60;
+  color: white;
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 12px;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  min-width: 80px;
+}
+
+.status-badge.resolved {
+  background-color: #27ae60;
+}
+
+.status-badge.in-progress {
+  background-color: #f39c12;
+}
+
+.status-badge.pending {
+  background-color: #95a5a6;
+}
+
+.table-btn {
+  background-color: #2980b9;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.table-btn:hover {
+  background-color: #1f6391;
+}
+
+/* Scrollbar styling for table on webkit */
+.complaints-table::-webkit-scrollbar {
+  height: 8px;
+}
+
+.complaints-table::-webkit-scrollbar-thumb {
+  background-color: #27ae60;
+  border-radius: 10px;
+}
+ 

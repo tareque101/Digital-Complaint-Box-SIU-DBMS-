@@ -1,0 +1,92 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fbfc;
+  color: #222;
+  padding: 30px 20px;
+}
+
+.analytics-section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #238636; /* Corporate green */
+  text-align: center;
+}
+
+.kpi-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.kpi-card {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+  flex: 1 1 30%;
+  min-width: 220px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.kpi-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15);
+}
+
+.kpi-card h3 {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #238636;
+  margin-bottom: 12px;
+}
+
+.kpi-card p {
+  font-size: 1.15rem;
+  color: #555;
+  letter-spacing: 0.02em;
+}
+
+.chart-container {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 30px 40px;
+}
+
+.chart-container h3 {
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #238636;
+  text-align: center;
+}
+
+.chart-placeholder {
+  height: 320px;
+  background: #e6f2e6;
+  border: 3px dashed #238636;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #238636;
+  font-weight: 600;
+  font-size: 1.2rem;
+  user-select: none;
+}

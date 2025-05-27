@@ -6,11 +6,34 @@
 <title>Register Form</title>
 <link rel="stylesheet" href="css/register.css">
 
+<script>
+  function validateForm() {
+    const emailInput = document.querySelector('input[name="email"]').value.trim();
+
+    // Basic email regex for format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailInput)) {
+      alert("Please enter a valid email address.");
+      return false;
+    }
+
+    // Allowed email domains
+    const allowedDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com'];
+    const emailDomain = emailInput.split('@')[1].toLowerCase();
+
+    if (!allowedDomains.includes(emailDomain)) {
+      alert("Wrong email address!");
+      return false;
+    }
+
+    return true; 
+  }
+</script>
 
 </head>
 <body>
 
-<form action="register.php" method="POST">
+<form action="register.php" method="POST" onsubmit="return validateForm()">
   <h2>Create Account</h2>
 
   <input type="text" name="name" placeholder="Full Name" required autocomplete="name" />

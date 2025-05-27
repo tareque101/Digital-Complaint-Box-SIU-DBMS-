@@ -35,7 +35,7 @@ body {
 
 .logo-icon {
     font-size: 28px;
-    color: #4361ee;
+    color: #037c35;
 }
 
 .logo-text {
@@ -45,7 +45,7 @@ body {
 }
 
 .logo-text span {
-    color: #4361ee;
+    color: #037c35;
 }
 
 .nav-links {
@@ -83,7 +83,7 @@ body {
 }
 
 .nav-links li.active a {
-    color: #4361ee;
+    color: #037c35;
     background: rgba(67, 97, 238, 0.1);
 }
 
@@ -94,12 +94,12 @@ body {
     top: 0;
     height: 100%;
     width: 4px;
-    background: #4361ee;
+    background: #037c35;
     border-radius: 0 5px 5px 0;
 }
 
 .nav-links li a:hover {
-    color: #4361ee;
+    color: #037c35;
     background: rgba(67, 97, 238, 0.05);
 }
 
@@ -233,7 +233,7 @@ body {
     align-items: center;
     gap: 8px;
     padding: 10px 15px;
-    background: #4361ee;
+    background: #037c35;
     color: white;
     border: none;
     border-radius: 8px;
@@ -244,7 +244,7 @@ body {
 }
 
 .quick-action-btn:hover {
-    background: #3a56d4;
+    background: #037c35;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
 }
@@ -268,7 +268,7 @@ body {
 }
 
 .welcome-text h2 span {
-    color: #4361ee;
+    color: #037c35;
 }
 
 .welcome-text p {
@@ -287,7 +287,7 @@ body {
 }
 
 .date-display i {
-    color: #4361ee;
+    color: #037c35;
 }
 
 .date-display span {
@@ -337,7 +337,7 @@ body {
 
 .stat-icon.in-progress {
     background: rgba(67, 97, 238, 0.1);
-    color: #4361ee;
+    color: #037c35;
 }
 
 .stat-icon.resolved {
@@ -379,7 +379,7 @@ body {
 }
 
 .stat-card:nth-child(2) .progress-bar {
-    background: #4361ee;
+    background: #037c35;
 }
 
 .stat-card:nth-child(3) .progress-bar {
@@ -405,7 +405,7 @@ body {
 
 .view-all {
     font-size: 14px;
-    color: #4361ee;
+    color: #037c35;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -451,7 +451,7 @@ body {
 }
 
 .activity-icon i.new {
-    color: #4361ee;
+    color: #037c35;
 }
 
 .activity-icon i.in-progress {
@@ -511,7 +511,7 @@ body {
 
 .action-btn i {
     font-size: 24px;
-    color: #4361ee;
+    color: #037c35;
     margin-bottom: 10px;
 }
 
@@ -572,7 +572,7 @@ body {
 
 .status-badge.in-progress {
     background: rgba(67, 97, 238, 0.1);
-    color: #4361ee;
+    color: #037c35;
 }
 
 .status-badge.resolved {
@@ -583,7 +583,7 @@ body {
 .table-btn {
     padding: 6px 12px;
     background: rgba(67, 97, 238, 0.1);
-    color: #4361ee;
+    color: #037c35;
     border: none;
     border-radius: 5px;
     font-size: 12px;
@@ -593,73 +593,6 @@ body {
 }
 
 .table-btn:hover {
-    background: #4361ee;
+    background: #037c35;
     color: white;
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
-@media (max-width: 1200px) {
-    .dashboard-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 992px) {
-    .sidebar {
-        transform: translateX(-100%);
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-    }
-    
-    .sidebar.active {
-        transform: translateX(0);
-    }
-    
-    .main-content {
-        margin-left: 0;
-    }
-    
-    .search-bar {
-        width: 300px;
-    }
-}
-
-@media (max-width: 768px) {
-    .top-bar {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-    }
-    
-    .search-bar {
-        width: 100%;
-    }
-    
-    .welcome-banner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-    
-    .stats-cards {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 576px) {
-    .stats-cards {
-        grid-template-columns: 1fr;
-    }
-    
-    .action-buttons {
-        grid-template-columns: 1fr;
-    }
-    
-    .complaints-table table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
 }
