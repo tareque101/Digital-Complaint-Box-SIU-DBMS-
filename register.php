@@ -53,10 +53,11 @@ $name = trim($_POST['name'] ?? '');
 $email = trim($_POST['email'] ?? '');
 $role = $_POST['role'] ?? '';
 $password = $_POST['password'] ?? '';
+$dept = trim($_POST['dept'] ?? '');  // Correct key here
 
 // Form validation
-if (empty($name) || empty($email) || empty($password) || empty($role)) {
-    show_message("Please fill all required fields.", "red");
+if (empty($name) || empty($email) || empty($password) || empty($role) || empty($dept)) {
+    show_message("Please fill all required fields, including department.", "red");
 }
 
 // Validate email format
@@ -68,7 +69,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 $disallowed_domains = ['example.com', 'test.com', 'invalid.com'];
 $domain = substr(strrchr($email, "@"), 1);
 if (in_array(strtolower($domain), $disallowed_domains)) {
-    show_message("wrong email format.", "red");
+    show_message("Wrong email format.", "red");
 }
 
 // Hash password
@@ -83,10 +84,11 @@ $stmt->store_result();
 if ($stmt->num_rows > 0) {
     show_message("Email already registered.", "red");
 }
+$stmt->close();
 
 // Insert the user into the database
-$stmt = $conn->prepare("INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssss", $name, $email, $hashed_password, $role);
+$stmt = $conn->prepare("INSERT INTO users (name, email, password, role, dept) VALUES (?, ?, ?, ?, ?)");
+$stmt->bind_param("sssss", $name, $email, $hashed_password, $role, $dept);
 
 if ($stmt->execute()) {
     show_message("Registration successful!", "green");

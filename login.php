@@ -14,19 +14,76 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_result($db_password, $role, $name);
         $stmt->fetch();
 
-        if ($password === $db_password) {
+        if (password_verify($password, $db_password)) {
             session_start();
             $_SESSION['email'] = $email;
             $_SESSION['role'] = $role;
             $_SESSION['name'] = $name;
-
+ 
+            echo '
+            <div style="
+                display: flex;
+                justify-content: center;
+                margin-top: 50px;
+            ">
+                <button style="
+                    background-color: #28a745;
+                    color: white;
+                    border: none;
+                    padding: 15px 30px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    border-radius: 5px;
+                    cursor: default;
+                ">
+                    ✔ Login Successful
+                </button>
+            </div>';
             
-            header("Location: home.html");
             exit();
         } else {
-            echo "Password is wrong";
+      
+            echo '
+            <div style="
+                display: flex;
+                justify-content: center;
+                margin-top: 50px;
+            ">
+                <button style="
+                    background-color: #dc3545;
+                    color: white;
+                    border: none;
+                    padding: 15px 30px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    border-radius: 5px;
+                    cursor: default;
+                ">
+                    ✖ Password is wrong
+                </button>
+            </div>';
         }
     } else {
-        echo "Email is not correct";
+     
+        echo '
+        <div style="
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        ">
+            <button style="
+                background-color: #dc3545;
+                color: white;
+                border: none;
+                padding: 15px 30px;
+                font-size: 18px;
+                font-weight: bold;
+                border-radius: 5px;
+                cursor: default;
+            ">
+                ✖ Email is not correct
+            </button>
+        </div>';
     }
 }
+?>
