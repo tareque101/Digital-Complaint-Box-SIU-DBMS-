@@ -568,4 +568,63 @@ body {
         white-space: nowrap;
     }
 }
-</style>
+
+/* ===== Additional Responsive Tweaks ===== */
+
+/* Adjust analytics grid for small screens */
+@media (max-width: 768px) {
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .status-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-content {
+    padding: 20px 15px;
+  }
+}
+
+/* Further adjustments for very narrow screens */
+@media (max-width: 576px) {
+  .status-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .top-bar-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .date-display {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* Sidebar toggle button for mobile */
+@media (max-width: 992px) {
+  .sidebar-toggle {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #4361ee;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 110;
+  }
+}

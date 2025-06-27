@@ -597,10 +597,18 @@ body {
     color: white;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+/* ===== RESPONSIVE DESIGN IMPROVEMENTS ===== */
 @media (max-width: 1200px) {
     .dashboard-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        width: 250px;
+    }
+    
+    .main-content {
+        margin-left: 250px;
     }
 }
 
@@ -611,6 +619,8 @@ body {
         top: 0;
         left: 0;
         height: 100%;
+        z-index: 1000;
+        transition: transform 0.3s ease;
     }
     
     .sidebar.active {
@@ -622,19 +632,40 @@ body {
     }
     
     .search-bar {
-        width: 300px;
+        width: 250px;
+    }
+    
+    /* Mobile menu toggle button */
+    .mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: #4361ee;
+        color: white;
+        border-radius: 8px;
+        font-size: 20px;
+        cursor: pointer;
+        margin-right: 15px;
+    }
+    
+    .top-bar-actions {
+        display: flex;
+        align-items: center;
     }
 }
 
 @media (max-width: 768px) {
     .top-bar {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row;
         padding: 15px;
+        align-items: center;
     }
     
     .search-bar {
-        width: 100%;
+        flex: 1;
+        margin-right: 15px;
     }
     
     .welcome-banner {
@@ -646,6 +677,18 @@ body {
     .stats-cards {
         grid-template-columns: 1fr 1fr;
     }
+    
+    .quick-action-btn span {
+        display: none;
+    }
+    
+    .quick-action-btn {
+        padding: 10px;
+    }
+    
+    .dashboard-content {
+        padding: 20px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -654,12 +697,80 @@ body {
     }
     
     .action-buttons {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     
     .complaints-table table {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
+    }
+    
+    .search-bar {
+        width: 100%;
+        margin-right: 10px;
+    }
+    
+    .search-bar input {
+        padding: 10px 15px 10px 40px;
+    }
+    
+    .top-bar-actions {
+        gap: 10px;
+    }
+    
+    .notification-icon {
+        font-size: 18px;
+    }
+    
+    .quick-action-btn {
+        padding: 8px 12px;
+    }
+    
+    .welcome-text h2 {
+        font-size: 24px;
+    }
+    
+    .date-display {
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .action-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-card {
+        padding: 15px;
+    }
+    
+    .activity-item {
+        flex-direction: column;
+    }
+    
+    .activity-icon {
+        margin-bottom: 10px;
+    }
+    
+    .complaints-table th, 
+    .complaints-table td {
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+    
+    .table-btn {
+        padding: 4px 8px;
+    }
+}
+
+/* Mobile menu toggle button (add this to your HTML) */
+.mobile-menu-toggle {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .mobile-menu-toggle {
+        display: flex;
     }
 }

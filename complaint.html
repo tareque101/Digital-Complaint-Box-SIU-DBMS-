@@ -70,6 +70,9 @@
             </div>
         </div>
     </aside>
+<div class="sidebar-toggle">
+  <i class="fas fa-bars"></i>
+</div>
 
     <!-- Main Content -->
     <main class="main-content">
@@ -257,4 +260,11 @@
 
     
 </body>
+
+<script>
+document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+  document.querySelector('.sidebar').classList.toggle('active');
+});
+</script>
+
 </html>

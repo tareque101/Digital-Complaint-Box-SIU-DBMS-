@@ -10,6 +10,9 @@
 </head>
 <body>
     <!-- Side Navigation -->
+     <button class="mobile-menu-toggle" id="menuToggle">
+    <i class="fas fa-bars"></i>
+</button>
     <nav class="sidebar">
         <div class="sidebar-header">
             <div class="logo-icon"><i class="fas fa-comment-dots"></i></div>
@@ -277,7 +280,11 @@
             </section>
         </div>
     </main>
-
+<script>
+    document.getElementById('menuToggle').addEventListener('click', function() {
+        document.querySelector('.sidebar').classList.toggle('active');
+    });
+</script>
     
 </body>
 </html>

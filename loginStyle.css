@@ -317,4 +317,96 @@ body {
     text-decoration: underline;
 }
 
- 
+ /* ===== Responsive Styles ===== */
+@media (max-width: 768px) {
+  .login-container {
+    width: 90%;
+    padding: 0 10px;
+  }
+
+  .login-form {
+    padding: 30px;
+  }
+
+  .form-title {
+    font-size: 28px;
+  }
+
+  .form-subtitle {
+    font-size: 13px;
+  }
+
+  .login-btn {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .input-group input {
+    padding: 14px 38px 14px 14px;
+    font-size: 15px;
+  }
+
+  .input-group label {
+    font-size: 14px;
+  }
+
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .social-login p::before,
+  .social-login p::after {
+    width: 20%;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    width: 95%;
+  }
+
+  .login-form {
+    padding: 25px;
+  }
+
+  .form-title {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .form-subtitle {
+    text-align: center;
+  }
+
+  .login-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .social-icons {
+    gap: 10px;
+  }
+
+  .social-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .signup-link {
+    font-size: 13px;
+  }
+
+  .input-group input {
+    padding: 12px 36px 12px 12px;
+    font-size: 14px;
+  }
+
+  .input-icon,
+  .password-toggle {
+    top: 12px;
+    font-size: 14px;
+  }
+}
